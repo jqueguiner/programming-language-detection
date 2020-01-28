@@ -1,0 +1,30 @@
+FROM tensorflow/tensorflow 
+
+RUN apt-get update && apt-get install -y
+
+RUN apt-get install curl wget python3 python3-distutils -y
+
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+RUN python3 get-pip.py --force-reinstall
+
+RUN mkdir -p /src/
+
+WORKDIR /src
+
+ADD requirements.txt /src/
+
+RUN pip3 install -r requirements.txt
+
+ADD app_utils.py /src/
+ADD data_helper.py /src/
+ADD defs.py /src/
+ADD app.py /src/
+
+WORKDIR /src/
+
+EXPOSE 5000
+
+ENTRYPOINT ["python3"]
+
+CMD ["app.py"]

@@ -1,0 +1,6 @@
+flask
+requests
+keras
+tensorflow
+numpy
+h5py
