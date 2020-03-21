@@ -93,7 +93,7 @@ if __name__ == '__main__':
     model_directory = '/src/models/'
     create_directory(model_directory)
 
-    moodel_url_prefix = "http://pretrained-models.auth-18b62333a540498882ff446ab602528b.storage.gra5.cloud.ovh.net/text/programming-language/"
+    moodel_url_prefix = "http://pretrained-models.auth-18b62333a540498882ff446ab602528b.storage.gra.cloud.ovh.net/text/programming-language/"
     get_model_bin(moodel_url_prefix + "save_tmp.h5", model_directory + "save_tmp.h5")
 
     model = keras.models.load_model(model_directory + "save_tmp.h5")
